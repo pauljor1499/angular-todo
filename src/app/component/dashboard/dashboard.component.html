@@ -11,7 +11,8 @@
 		<button class="btn btn-primary" type="button" (click)="addTodo()">Add Todo</button>
 	</div>
 	<ul class="list-group">
-		<li *ngFor="let task of tasks; let i = index" class="list-group-item">
+		<li *ngFor="let task of tasks; let i = index" class="list-group-item" [ngClass]="{'completed': isCompleted(i)}">
+			<input type="checkbox" class="form-check-input me-2" [(ngModel)]="task.isCompleted" (change)="toggleCompleted(i)">
 			<h6>{{ task.name }}</h6>
 			<div class="item-action">
 				<button
@@ -21,7 +22,7 @@
 				>
 					Remove
 				</button>
-				<button class="btn btn-success btn-sm mx-2" (click)="editTodo(i)">Edit</button>
+				<button class="btn btn-success btn-sm float-end" type="button" (click)="editTodo(i)">Edit</button>
 			</div>
 		</li>
 	</ul>
