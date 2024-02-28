@@ -20,4 +20,9 @@ export class CrudService {
 		const index: number = taskListData.indexOf(taskData);
 		taskListData.splice(index, 1);
 	}
+
+	updateTask(taskID: any, newTaskData: Task) {
+		const index: number = taskListData.findIndex((task) => task.id === taskID);
+		taskListData.splice(index, 1, newTaskData);
+	}
 }

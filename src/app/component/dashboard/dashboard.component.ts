@@ -9,11 +9,14 @@ import { CrudService } from 'src/app/service/crud.service';
 	providers: [CrudService]
 })
 export class DashboardComponent {
-	constructor(private taskListService: CrudService) { }
-
+	constructor(private taskListService: CrudService,) { }
 
 	tasks: Task[] = [];
-	newTodo: Task = new Task(0, '');
+	newTask: Task = new Task(0, '');
+	selectedTask: Task = new Task(0, '');
+
+	editIndex: number = -1;
+	showModal: boolean = false;
 
 	ngOnInit(): void {
 		//Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -26,9 +29,11 @@ export class DashboardComponent {
 	}
 
 	addTodo() {
-		this.newTodo.id = this.tasks.length;
-		this.taskListService.addNewTask(this.newTodo);
-		this.newTodo = new Task(0, ''); // Clear input after adding todo
+		if (this.newTask.name) {
+			this.newTask.id = this.tasks.length;
+			this.taskListService.addNewTask(this.newTask);
+			this.newTask = new Task(0, ''); // clear input after adding todo
+		}
 	}
 
 	removeTodo(index: number) {
@@ -37,8 +42,24 @@ export class DashboardComponent {
 	}
 
 	editTodo(index: number) {
-		console.log(index);
-		// this.todos.splice(index, 1);
+		this.selectedTask = new Task(
+			index,
+			this.tasks[index].name
+		)
+		this.editIndex = index;
+		this.showModal = true;
 	}
+
+	updateTodo() {
+		this.taskListService.updateTask(this.editIndex, this.selectedTask)
+		this.closeModal()
+	}
+
+	closeModal() {
+		this.showModal = false;
+		this.editIndex = -1;
+	}
+
+
 
 }

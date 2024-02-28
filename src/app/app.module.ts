@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 @NgModule({
-	declarations: [AppComponent, DashboardComponent],
+	declarations: [AppComponent, DashboardComponent,],
 	imports: [BrowserModule, AppRoutingModule, FormsModule,],
 	providers: [],
 	bootstrap: [AppComponent],
