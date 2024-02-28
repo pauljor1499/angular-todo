@@ -1,7 +1,9 @@
 export class Task {
+	id: number = 0;
 	name: string = '';
 
-	constructor(payloadTask: string) {
-		this.name = payloadTask;
+	constructor(taskID: number, taskData: string) {
+		this.id = taskID;
+		this.name = taskData;
 	}
 }
