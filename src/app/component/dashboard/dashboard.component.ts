@@ -13,7 +13,7 @@ export class DashboardComponent {
 
 
 	tasks: Task[] = [];
-	newTodo: Task = new Task(this.tasks.length, '');
+	newTodo: Task = new Task(0, '');
 
 	ngOnInit(): void {
 		//Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -26,13 +26,18 @@ export class DashboardComponent {
 	}
 
 	addTodo() {
-		// if (this.newTodo.trim() !== '') {
-		// 	this.todos.push(this.newTodo);
-		// 	this.newTodo = ''; // Clear input after adding todo
-		// }
+		this.newTodo.id = this.tasks.length;
+		this.taskListService.addNewTask(this.newTodo);
+		this.newTodo = new Task(0, ''); // Clear input after adding todo
 	}
 
 	removeTodo(index: number) {
+		console.log(index);
+		// this.todos.splice(index, 1);
+	}
+
+	editTodo(index: number) {
+		console.log(index);
 		// this.todos.splice(index, 1);
 	}
 
