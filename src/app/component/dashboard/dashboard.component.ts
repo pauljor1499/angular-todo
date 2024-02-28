@@ -47,12 +47,20 @@ export class DashboardComponent {
 			this.tasks[index].name
 		)
 		this.editIndex = index;
-		this.showModal = true;
+		this.displayModal();
 	}
 
 	updateTodo() {
 		this.taskListService.updateTask(this.editIndex, this.selectedTask)
 		this.closeModal()
+	}
+
+	// isCompleted(index: number): boolean {
+	// 	return this.tasks[index].completed;
+	// }
+
+	displayModal() {
+		this.showModal = true;
 	}
 
 	closeModal() {
