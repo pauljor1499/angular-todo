@@ -2,6 +2,14 @@
   width: 50%;
   margin: auto;
 
+  .empty-list {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d9d9d9;
+  }
+
   .list-group {
     .completed {
       text-decoration: line-through;

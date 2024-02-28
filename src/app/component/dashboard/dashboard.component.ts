@@ -37,7 +37,6 @@ export class DashboardComponent {
 	}
 
 	removeTodo(index: number) {
-		console.log(index);
 		this.taskListService.removeNewTask(this.tasks[index]);
 	}
 
