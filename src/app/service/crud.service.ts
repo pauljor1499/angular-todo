@@ -16,8 +16,8 @@ export class CrudService {
 		taskListData.push(taskData)
 	}
 
-	removeNewTask(taskData: Task) {
-		const index: number = taskListData.indexOf(taskData);
+	removeNewTask(taskID: any) {
+		const index: number = taskListData.findIndex((task) => task.id === taskID);
 		taskListData.splice(index, 1);
 	}
 

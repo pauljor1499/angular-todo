@@ -36,8 +36,8 @@ export class DashboardComponent {
 		}
 	}
 
-	removeTodo(index: number) {
-		this.taskListService.removeNewTask(this.tasks[index]);
+	removeTodo(taskID: number) {
+		this.taskListService.removeNewTask(taskID);
 	}
 
 	editTodo(index: number) {
