@@ -12,9 +12,13 @@
       justify-content: space-between;
       align-items: center;
 
+      .item-main {
+        @extend .list-group-item;
+        gap: 10px;
+      }
+
       .item-action {
-        display: flex;
-        align-items: center;
+        @extend .list-group-item;
         gap: 10px;
       }
     }
