@@ -21,7 +21,7 @@ export class DashboardComponent {
 	ngOnInit(): void {
 		//Called after the constructor, initializing input properties, and the first call to ngOnChanges.
 		//Add 'implements OnInit' to the class.
-		this.getAllTasks()
+		this.getAllTasks();
 	}
 
 	getAllTasks(): void {
@@ -38,7 +38,7 @@ export class DashboardComponent {
 
 	removeTodo(index: number) {
 		console.log(index);
-		this.taskListService.removeNewTask(this.tasks[index])
+		this.taskListService.removeNewTask(this.tasks[index]);
 	}
 
 	editTodo(index: number) {
@@ -51,16 +51,17 @@ export class DashboardComponent {
 	}
 
 	updateTodo() {
-		this.taskListService.updateTask(this.editIndex, this.selectedTask)
-		this.closeModal()
+		this.taskListService.updateTask(this.editIndex, this.selectedTask);
+		this.closeModal();
 	}
 
-	isCompleted(index: number): boolean {
+	checkStatus(index: number): boolean {
 		return this.tasks[index].isCompleted;
 	}
 
 	toggleCompleted(index: number) {
-		this.tasks[index].isCompleted = !this.tasks[index].isCompleted;
+		this.tasks[index].isCompleted = this.tasks[index].isCompleted;
+		console.log(this.tasks[index].isCompleted);
 	}
 
 	displayModal() {
