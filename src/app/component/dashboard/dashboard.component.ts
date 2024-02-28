@@ -42,15 +42,16 @@ export class DashboardComponent {
 
 	editTodo(index: number) {
 		this.selectedTask = new Task(
-			index,
-			this.tasks[index].name, false
+			this.tasks[index].id,
+			this.tasks[index].name,
+			this.tasks[index].isCompleted
 		)
 		this.editIndex = index;
 		this.displayModal();
 	}
 
 	updateTodo() {
-		this.taskListService.updateTask(this.editIndex, this.selectedTask);
+		this.taskListService.updateTask(this.tasks[this.editIndex].id, this.selectedTask);
 		this.closeModal();
 	}
 
