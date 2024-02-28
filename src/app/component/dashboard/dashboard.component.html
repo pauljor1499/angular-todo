@@ -1,7 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">TODO App</a>
-  </div>
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">TODO App</a>
+	</div>
 </nav>
 <h4>Dashboard Page</h4>
-<span>{{ tasks.length }}</span>
+<h5>Total tasks: {{ tasks.length }}</h5>
+<div class="dashboard-content">
+	<div class="input-group mb-3">
+		<input type="text" class="form-control" [(ngModel)]="newTodo.name" placeholder="Add a new todo">
+		<button class="btn btn-primary" type="button" (click)="addTodo()">Add Todo</button>
+	</div>
+	{{newTodo.name}}
+	
+	<ul class="list-group">
+		<li *ngFor="let task of tasks; let i = index" class="list-group-item">
+			<h6>{{ task.name }} </h6>
+			<div class="item-action">
+				<button
+					class="btn btn-danger btn-sm float-end"
+					type="button"
+					(click)="removeTodo(i)"
+				>
+					Remove
+				</button>
+				<button
+					class="btn btn-danger btn-sm float-end"
+					type="button"
+					(click)="removeTodo(i)"
+				>
+					Edit
+				</button>
+			</div>
+		</li>
+	</ul>
+</div>

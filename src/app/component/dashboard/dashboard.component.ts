@@ -13,7 +13,7 @@ export class DashboardComponent {
 
 
 	tasks: Task[] = [];
-	newTodo: string = '';
+	newTodo: Task = new Task(this.tasks.length, '');
 
 	ngOnInit(): void {
 		//Called after the constructor, initializing input properties, and the first call to ngOnChanges.

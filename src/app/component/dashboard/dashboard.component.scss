@@ -1,0 +1,17 @@
+.dashboard-content {
+  padding: 5%;
+
+  .list-group {
+    .list-group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .item-action {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  }
+}

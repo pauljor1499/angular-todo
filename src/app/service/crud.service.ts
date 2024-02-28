@@ -11,4 +11,8 @@ export class CrudService {
 	getAllTasks(): Task[] {
 		return taskListData;
 	}
+
+	addNewTask(taskData: Task) {
+		taskListData.push(taskData)
+	}
 }
