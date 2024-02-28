@@ -33,7 +33,7 @@ export class DashboardComponent {
 
 	removeTodo(index: number) {
 		console.log(index);
-		// this.todos.splice(index, 1);
+		this.taskListService.removeNewTask(this.tasks[index])
 	}
 
 	editTodo(index: number) {
