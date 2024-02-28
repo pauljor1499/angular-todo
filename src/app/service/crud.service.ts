@@ -16,17 +16,17 @@ export class CrudService {
 		taskListData.push(taskData)
 	}
 
-	removeNewTask(taskID: any) {
+	removeNewTask(taskID: number) {
 		const index: number = taskListData.findIndex((task) => task.id === taskID);
 		taskListData.splice(index, 1);
 	}
 
-	updateTask(taskID: any, newTaskData: Task) {
+	updateTask(taskID: number, newTaskData: Task) {
 		const index: number = taskListData.findIndex((task) => task.id === taskID);
 		taskListData.splice(index, 1, newTaskData);
 	}
 
-	updateTaskStatus(taskID: any) {
+	updateTaskStatus(taskID: number) {
 		const index: number = taskListData.findIndex((task) => task.id === taskID);
 		taskListData[index].isCompleted = taskListData[index].isCompleted;
 	}
