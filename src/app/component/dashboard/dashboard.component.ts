@@ -59,8 +59,8 @@ export class DashboardComponent {
 		return this.tasks[index].isCompleted;
 	}
 
-	toggleCompleted(index: number) {
-		this.taskListService.updateTaskStatus(index);
+	toggleCompleted(taskID: number) {
+		this.taskListService.updateTaskStatus(taskID);
 	}
 
 	displayModal() {
