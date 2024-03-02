@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from 'src/app/model/task';
+import { TaskModel } from 'src/app/model/task';
 import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
@@ -11,9 +11,9 @@ import { CrudService } from 'src/app/service/crud.service';
 export class DashboardComponent {
 	constructor(private taskListService: CrudService,) { }
 
-	tasks: Task[] = [];
-	newTask: Task = new Task(0, '', false);
-	selectedTask: Task = new Task(0, '', false);
+	tasks: TaskModel[] = [];
+	newTask: TaskModel = new TaskModel(0, '', false);
+	selectedTask: TaskModel = new TaskModel(0, '', false);
 
 	editIndex: number = -1;
 	showModal: boolean = false;
@@ -32,7 +32,7 @@ export class DashboardComponent {
 		if (this.newTask.name) {
 			this.newTask.id = this.tasks.length;
 			this.taskListService.addNewTask(this.newTask);
-			this.newTask = new Task(0, '', false); // clear input after adding todo
+			this.newTask = new TaskModel(0, '', false); // clear input after adding todo
 		}
 	}
 
@@ -41,7 +41,7 @@ export class DashboardComponent {
 	}
 
 	editTodo(index: number) {
-		this.selectedTask = new Task(
+		this.selectedTask = new TaskModel(
 			this.tasks[index].id,
 			this.tasks[index].name,
 			this.tasks[index].isCompleted

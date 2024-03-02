@@ -1,6 +1,6 @@
-import { Task } from './task';
+import { TaskModel } from './task';
 
-export const taskListData: Task[] = [
+export const taskListData: TaskModel[] = [
 	{
 		id: 0,
 		name: 'I need to wash my clothes.',

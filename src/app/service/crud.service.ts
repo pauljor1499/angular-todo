@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../model/task';
+import { TaskModel } from '../model/task';
 import { taskListData } from '../model/taskListData';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class CrudService {
-	constructor() { }
+	constructor(private http: HttpClient) { }
 
-	getAllTasks(): Task[] {
+	getAllTasks(): TaskModel[] {
 		return taskListData;
 	}
 
-	addNewTask(taskData: Task) {
+	addNewTask(taskData: TaskModel) {
 		taskListData.push(taskData)
 	}
 
@@ -21,7 +23,7 @@ export class CrudService {
 		taskListData.splice(index, 1);
 	}
 
-	updateTask(taskID: number, newTaskData: Task) {
+	updateTask(taskID: number, newTaskData: TaskModel) {
 		const index: number = taskListData.findIndex((task) => task.id === taskID);
 		taskListData.splice(index, 1, newTaskData);
 	}
